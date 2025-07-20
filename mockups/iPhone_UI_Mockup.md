@@ -23,6 +23,11 @@
 │      ⭕        ➕        ⬇️       │  ← Quick Actions (80px)
 │   Receive     Add      Send        │
 ├─────────────────────────────────────┤
+|                                       |
+|  SPACE BETWEEN                        | ← Quick Actions (120px)
+|                                      |
+|  
+├─────────────────────────────────────┤
 │  PAYMENT METHODS                    │  ← Payment Section (160px)
 │  🏦 Revolut              ✅       │
 │  🏦 N26                  ✅       │

@@ -115,6 +115,45 @@
         gap: 3px;
       }
 
+      /* SECCIÓN SUPERIOR: Profile + Balance (fija arriba) */
+      .content-top {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        flex-shrink: 0; /* No se encoge */
+      }
+
+      /* SECCIÓN MEDIA: Botones con espacio flexible */
+      .content-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centra los botones */
+        padding: 20px 0; /* Padding normal */
+      }
+
+      /* ESPACIADOR FÍSICO ENTRE SECCIONES */
+      .spacer-between-sections {
+        height: 80px; /* Espacio fijo de 80px */
+        background: transparent;
+        flex-shrink: 0; /* No se encoge */
+      }
+
+      /* ESPACIADOR ARRIBA DE LOS BOTONES PARA BAJARLOS */
+      .spacer-above-buttons {
+        height: 40px; /* Baja los botones 40px */
+        background: transparent;
+        flex-shrink: 0;
+      }
+
+      /* SECCIÓN INFERIOR: Payment + Fast Action (pegada al fondo) */
+      .content-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        flex-shrink: 0; /* No se encoge */
+        padding-bottom: 8px;
+      }
+
       /* Mobile optimization for iPhone 14 Plus */
       @media screen and (max-width: 430px) and (min-height: 900px) {
         .content {
@@ -132,6 +171,23 @@
 
         .header-logo {
           height: 52px;
+        }
+
+        /* Ajustes móviles para la nueva estructura */
+        .content-middle {
+          padding: 15px 0; /* Padding normal en móvil */
+        }
+
+        .spacer-between-sections {
+          height: 60px; /* Menos espacio en móvil */
+        }
+
+        .spacer-above-buttons {
+          height: 30px; /* Menos espacio arriba en móvil */
+        }
+
+        .content-bottom {
+          padding-bottom: 6px;
         }
       }
 
@@ -1108,7 +1164,9 @@
         </div>
 
         <div class="content">
-          <div class="profile-stats">
+          <!-- SECCIÓN SUPERIOR: Profile + Balance -->
+          <div class="content-top">
+            <div class="profile-stats">
             <div class="username">👤 @Alv</div>
             <div class="badges">
               <span class="badge">7⭕</span>
@@ -1184,8 +1242,13 @@
               <button class="copy-btn">📋</button>
             </div>
           </div>
+          <!-- FIN SECCIÓN SUPERIOR -->
 
-          <div class="quick-actions">
+          <!-- SECCIÓN MEDIA: Botones con espacio -->
+          <div class="content-middle">
+            <!-- ESPACIADOR PARA BAJAR LOS BOTONES -->
+            <div class="spacer-above-buttons"></div>
+            <div class="quick-actions">
             <div class="currency-selector-container">
               <button class="action-btn currency-btn" id="currencyBtn">
                 🇦🇷
@@ -1243,8 +1306,16 @@
               <div class="transfer-label">Transfer USDC</div>
             </div>
           </div>
+          <!-- FIN SECCIÓN MEDIA -->
 
-          <div class="payment-methods">
+          <!-- ESPACIADOR FÍSICO ENTRE BOTONES Y PAYMENT METHODS -->
+          <div class="spacer-between-sections"></div>
+          <div class="spacer-between-sections"></div> <!-- SEGUNDO ESPACIADOR PARA MÁS ESPACIO -->
+          
+
+          <!-- SECCIÓN INFERIOR: Payment + Fast Action al fondo -->
+          <div class="content-bottom">
+            <div class="payment-methods">
             <div class="payment-title">PAYMENT METHODS</div>
             <div id="paymentMethodsList" class="payment-methods-list">
               <!-- Payment methods will be populated dynamically -->
@@ -1308,6 +1379,7 @@
               </div>
             </div>
           </div>
+          <!-- FIN SECCIÓN INFERIOR -->
         </div>
 
         <div class="bottom-nav">
