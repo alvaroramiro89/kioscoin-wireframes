@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kioscoin - Mi Cuenta</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/colors.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <script src="scripts/dropdown.js"></script>
+  </head>
+  <body>
+        <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Header with Logo -->
+        <header class="app-header">
+            <div class="logo-container">
+                <h1 class="app-logo">kioscoin</h1>
+            </div>
+        </header>
+
+        <!-- Profile Stats Section -->
+        <section class="profile-stats-section">
+            <div class="profile-stats-card">
+                <div class="user-info">
+                    <div class="username">@Alv</div>
+                </div>
+                <div class="stats-badges">
+                    <div class="badge trading-score">
+                        <span class="badge-value">7</span>
+                        <div class="badge-indicator green"></div>
+                    </div>
+                    <div class="badge reviews">
+                        <span class="badge-value">5</span>
+                        <div class="badge-icon">⭐</div>
+                    </div>
+                    <div class="badge volume">
+                        <span class="badge-value">12992.31m</span>
+                        <div class="badge-icon">⏱️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Balance Section - Single Card -->
+        <section class="balance-section">
+            <div class="main-balance-card">
+                <div class="balance-selector">
+                    <button class="crypto-selector" id="cryptoSelector">
+                        <div class="crypto-logo">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="#2775CA"/>
+                                <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm5.568 13.8h-3.65v1.2h3.65c-.03 1.96-.51 3.24-1.44 3.84-.61.39-1.42.59-2.43.59-1.01 0-1.82-.2-2.43-.59-.93-.6-1.41-1.88-1.44-3.84h3.65v-1.2h-3.65c.03-1.96.51-3.24 1.44-3.84.61-.39 1.42-.59 2.43-.59 1.01 0 1.82.2 2.43.59.93.6 1.41 1.88 1.44 3.84z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="crypto-info">
+                            <span class="crypto-name">USDC</span>
+                            <span class="crypto-network" id="networkDisplay">BNB Chain</span>
+                        </div>
+                        <div class="selector-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </button>
+                    
+                    <!-- Dropdown Menu -->
+                    <div class="network-dropdown" id="networkDropdown">
+                        <button class="network-option" data-network="BNB">
+                            <span class="network-name">USDC BNB</span>
+                            <span class="network-chain">BNB Chain</span>
+                        </button>
+                        <button class="network-option" data-network="ARB">
+                            <span class="network-name">USDC ARB</span>
+                            <span class="network-chain">Arbitrum</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="main-balance">
+                    <span class="balance-amount">0.00</span>
+                    <span class="balance-currency">USDC</span>
+                </div>
+                
+                <div class="fiat-equivalent">
+                    <span>≈ $0.00 USD</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Section -->
+        <section class="actions-section">
+            <h3 class="section-title">Acciones Rápidas</h3>
+            <div class="action-cards">
+                <button class="action-card buy">
+                    <div class="action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 8v8m-4-4h8" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>Comprar</span>
+                </button>
+                <button class="action-card sell">
+                    <div class="action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 12h8" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>Vender</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-item" data-page="inicio">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 22V12H15V22"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <span class="nav-label">Inicio</span>
+      </button>
+
+      <button class="nav-item" data-page="ordenes">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 2V8H20"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16 13H8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16 17H8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10 9H9H8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <span class="nav-label">Mis Órdenes</span>
+      </button>
+
+      <button class="nav-item active" data-page="cuenta">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="12"
+              cy="7"
+              r="4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <span class="nav-label">Mi Cuenta</span>
+      </button>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,352 @@
+/* COMPONENTES KIOSCOIN V2 */
+
+/* PROFILE SECTION */
+.profile-section {
+    margin-bottom: 16px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--kioscoin-primary), var(--kioscoin-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-inverse);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.profile-details h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.profile-wallet {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: 'SF Mono', Monaco, monospace;
+}
+
+.profile-settings {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.profile-settings:hover {
+    background-color: var(--bg-secondary);
+    color: var(--kioscoin-primary);
+}
+
+/* SECTIONS */
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+/* BALANCE SECTION - SINGLE CARD */
+.balance-section {
+    margin-bottom: 20px;
+}
+
+.main-balance-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    position: relative;
+}
+
+/* Crypto Selector */
+.balance-selector {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.crypto-selector {
+    display: flex;
+    align-items: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.crypto-selector:hover {
+    border-color: var(--kioscoin-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.crypto-logo {
+    margin-right: 12px;
+}
+
+.crypto-info {
+    flex: 1;
+    text-align: left;
+}
+
+.crypto-info .crypto-name {
+    display: block;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.crypto-info .crypto-network {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.selector-arrow {
+    color: var(--text-secondary);
+    transition: transform 0.2s ease;
+}
+
+.crypto-selector.active .selector-arrow {
+    transform: rotate(180deg);
+}
+
+/* Network Dropdown */
+.network-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+    min-width: 200px;
+    display: none;
+    margin-top: 4px;
+}
+
+.network-dropdown.show {
+    display: block;
+}
+
+.network-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: left;
+}
+
+.network-option:hover {
+    background-color: var(--bg-secondary);
+}
+
+.network-option:first-child {
+    border-radius: 12px 12px 0 0;
+}
+
+.network-option:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+.network-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.network-chain {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* Main Balance Display */
+.main-balance {
+    margin-bottom: 12px;
+}
+
+.balance-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-right: 8px;
+}
+
+.balance-currency {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.fiat-equivalent {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* ACTIONS SECTION */
+.actions-section {
+    margin-bottom: 16px;
+}
+
+.action-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.action-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    height: 80px;
+}
+
+.action-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.action-card.buy {
+    border-color: var(--success);
+}
+
+.action-card.buy:hover {
+    background-color: var(--success);
+    color: white;
+}
+
+.action-card.sell {
+    border-color: var(--error);
+}
+
+.action-card.sell:hover {
+    background-color: var(--error);
+    color: white;
+}
+
+.action-icon {
+    margin-bottom: 8px;
+    transition: transform 0.2s ease;
+}
+
+.action-card:hover .action-icon {
+    transform: scale(1.1);
+}
+
+/* Cards base */
+.card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-medium);
+}
+
+/* Botones base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--kioscoin-primary);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--kioscoin-secondary);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-dark);
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
