@@ -108,7 +108,7 @@
 
       .content {
         padding: 3px;
-        height: calc(100% - 87px - 120px); /* Espacio para footer elevado */
+        height: calc(100% - 87px - 70px); /* Espacio para footer fijo */
         overflow-y: hidden;
         display: flex;
         flex-direction: column;
@@ -165,7 +165,7 @@
       @media screen and (max-width: 430px) and (min-height: 900px) {
         .content {
           padding: 3px;
-          height: calc(100vh - 87px - 140px); /* Espacio para footer elevado en móvil */
+          height: calc(100vh - 87px - 70px); /* Espacio para footer fijo en móvil */
           gap: 3px;
           overflow-y: auto; /* Permitir scroll mínimo si es necesario */
         }
@@ -804,19 +804,18 @@
       }
 
       .bottom-nav {
-        position: absolute;
-        bottom: 50px; /* Subir mucho más para estar sobre Chrome bar */
+        position: fixed; /* FIXED para que esté siempre en la misma posición */
+        bottom: 0; /* PEGADO al fondo, sin gap */
         left: 0;
         right: 0;
-        height: 60px; /* Más compacto */
+        height: 70px;
         background: linear-gradient(135deg, #8b5cf6, #a78bfa);
         display: flex;
         justify-content: space-around;
         align-items: center;
         color: white;
-        border-radius: 15px 15px 0 0;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 10; /* Asegurar que esté arriba */
+        z-index: 1000; /* Muy alto para estar arriba de todo */
+        padding-bottom: env(safe-area-inset-bottom); /* Respeta área segura del iPhone */
       }
 
       .nav-item {
@@ -840,8 +839,8 @@
               /* Mobile specific adjustments */
         @media screen and (max-width: 430px) and (min-height: 900px) {
           .bottom-nav {
-            height: 60px;
-            bottom: 60px; /* Aún más arriba en móvil */
+            height: 70px;
+            bottom: 0; /* PEGADO al fondo en móvil también */
           }
           
           .content-bottom {
