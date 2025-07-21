@@ -108,7 +108,7 @@
 
       .content {
         padding: 3px;
-        height: calc(100% - 87px - 70px); /* minus status bar and nav */
+        height: calc(100% - 87px - 90px); /* Más espacio para footer elevado */
         overflow-y: hidden; /* Prevent scrolling */
         display: flex;
         flex-direction: column;
@@ -158,7 +158,7 @@
       @media screen and (max-width: 430px) and (min-height: 900px) {
         .content {
           padding: 3px;
-          height: calc(100vh - 87px - 75px); /* Optimizado para celular real */
+          height: calc(100vh - 87px - 110px); /* Espacio extra para barra navegador */
           gap: 3px;
           overflow-y: auto; /* Permitir scroll mínimo si es necesario */
         }
@@ -178,7 +178,7 @@
         }
 
         .spacer-between-sections {
-          height: 40px; /* Mucho menos espacio en móvil real */
+          height: 30px; /* Reducido para compensar footer elevado */
         }
 
         .spacer-above-buttons {
@@ -794,7 +794,7 @@
 
       .bottom-nav {
         position: absolute;
-        bottom: 0;
+        bottom: 20px; /* Subir 20px para evitar barra del navegador */
         left: 0;
         right: 0;
         height: 70px;
@@ -803,6 +803,8 @@
         justify-content: space-around;
         align-items: center;
         color: white;
+        border-radius: 15px 15px 0 0; /* Bordes redondeados arriba */
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
       }
 
       .nav-item {
@@ -823,11 +825,12 @@
         font-size: 20px;
       }
 
-      /* Mobile specific adjustments */
-      @media screen and (max-width: 430px) and (min-height: 900px) {
-        .bottom-nav {
-          height: 75px;
-        }
+              /* Mobile specific adjustments */
+        @media screen and (max-width: 430px) and (min-height: 900px) {
+          .bottom-nav {
+            height: 75px;
+            bottom: 30px; /* Más espacio en móvil para barra navegador */
+          }
 
         .nav-icon {
           font-size: 22px;
