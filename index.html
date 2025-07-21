@@ -108,7 +108,7 @@
 
       .content {
         padding: 3px;
-        height: calc(100% - 87px - 250px); /* Espacio para footer y content-bottom */
+        height: calc(100% - 87px - 120px); /* Espacio para footer elevado */
         overflow-y: hidden;
         display: flex;
         flex-direction: column;
@@ -145,23 +145,27 @@
         flex-shrink: 0;
       }
 
+      /* PEQUEÑO ESPACIADOR ENTRE BOTONES Y PAYMENT METHODS */
+      .small-spacer {
+        height: 40px;
+        background: transparent;
+        flex-shrink: 0;
+      }
+
       /* SECCIÓN INFERIOR: Payment + Fast Action (pegada al fondo) */
       .content-bottom {
-        position: absolute;
-        bottom: 120px; /* Justo arriba del footer (50px + 60px + 10px padding) */
-        left: 3px;
-        right: 3px;
         display: flex;
         flex-direction: column;
         gap: 8px; /* Pequeña separación entre Payment Methods y Fast Action */
-        z-index: 5;
+        margin-top: auto; /* Se pega al fondo automáticamente */
+        padding-bottom: 10px;
       }
 
       /* Mobile optimization for iPhone 14 Plus */
       @media screen and (max-width: 430px) and (min-height: 900px) {
         .content {
           padding: 3px;
-          height: calc(100vh - 87px - 110px); /* Espacio extra para barra navegador */
+          height: calc(100vh - 87px - 140px); /* Espacio para footer elevado en móvil */
           gap: 3px;
           overflow-y: auto; /* Permitir scroll mínimo si es necesario */
         }
@@ -186,6 +190,10 @@
 
         .spacer-above-buttons {
           height: 10px; /* Mínimo espacio arriba en móvil real */
+        }
+
+        .small-spacer {
+          height: 30px; /* Menos espacio en móvil */
         }
 
         .content-bottom {
@@ -837,8 +845,8 @@
           }
           
           .content-bottom {
-            bottom: 135px; /* Ajustado para móvil (60px + 60px + 15px) */
             gap: 6px; /* Separación más pequeña en móvil */
+            padding-bottom: 8px;
           }
 
         .nav-icon {
@@ -1319,7 +1327,8 @@
           </div>
           <!-- FIN SECCIÓN MEDIA -->
 
-          <!-- Los espaciadores ya no son necesarios con posicionamiento absoluto -->
+          <!-- PEQUEÑO ESPACIADOR ENTRE BOTONES Y PAYMENT METHODS -->
+          <div class="small-spacer"></div>
 
           <!-- SECCIÓN INFERIOR: Payment + Fast Action al fondo -->
           <div class="content-bottom">
