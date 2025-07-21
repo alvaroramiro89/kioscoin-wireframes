@@ -133,14 +133,14 @@
 
       /* ESPACIADOR FÍSICO ENTRE SECCIONES */
       .spacer-between-sections {
-        height: 80px; /* Espacio fijo de 80px */
+        height: 60px; /* Reducido para celular real */
         background: transparent;
         flex-shrink: 0; /* No se encoge */
       }
 
       /* ESPACIADOR ARRIBA DE LOS BOTONES PARA BAJARLOS */
       .spacer-above-buttons {
-        height: 20px; /* Menos espacio = botones más arriba */
+        height: 15px; /* Reducido para celular real */
         background: transparent;
         flex-shrink: 0;
       }
@@ -157,11 +157,10 @@
       /* Mobile optimization for iPhone 14 Plus */
       @media screen and (max-width: 430px) and (min-height: 900px) {
         .content {
-          padding: 5px;
-          height: calc(
-            100vh - 91px - 75px
-          ); /* Adjusted for mobile nav height */
-          gap: 5px;
+          padding: 3px;
+          height: calc(100vh - 87px - 75px); /* Optimizado para celular real */
+          gap: 3px;
+          overflow-y: auto; /* Permitir scroll mínimo si es necesario */
         }
 
         .app-header {
@@ -179,11 +178,11 @@
         }
 
         .spacer-between-sections {
-          height: 60px; /* Menos espacio en móvil */
+          height: 40px; /* Mucho menos espacio en móvil real */
         }
 
         .spacer-above-buttons {
-          height: 15px; /* Menos espacio arriba en móvil */
+          height: 10px; /* Mínimo espacio arriba en móvil real */
         }
 
         .content-bottom {
