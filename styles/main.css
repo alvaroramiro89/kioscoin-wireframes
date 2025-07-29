@@ -1,168 +1,246 @@
-/* RESET Y BASE */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ===== ESTILOS PRINCIPALES ===== */
 
 html,
 body {
-  height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-/* LAYOUT PRINCIPAL */
-body {
+.screen {
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #f8fafc;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
 }
 
-.main-content {
-    flex: 1;
-    padding: 16px;
-    padding-bottom: 100px; /* Espacio para la navegación inferior */
-    overflow-y: auto;
-    max-height: calc(100vh - 80px); /* Limitar altura para evitar scroll */
+.content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0; /* Reducir padding ya que no hay status bar */
+  margin: 0;
+  box-sizing: border-box;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  gap: 3px;
 }
 
-/* RESPONSIVE ADJUSTMENTS */
-@media (max-width: 768px) {
-    .balance-cards {
-        gap: 10px;
-    }
-    
-    .balance-card,
-    .profile-card {
-        padding: 16px;
-    }
-    
-    .action-cards {
-        gap: 10px;
-    }
-    
-    .action-card {
-        padding: 20px 12px;
-    }
+/* ===== STATUS BAR ===== */
+
+.status-bar {
+  height: 47px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 17px;
+  font-weight: 600;
+  display: none; /* OCULTAR LA STATUS BAR */
 }
 
-/* NAVEGACIÓN INFERIOR */
+.signals {
+  display: flex;
+  gap: 5px;
+}
+
+/* ===== APP HEADER ===== */
+
+.app-header {
+  height: 40px;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 4px;
+}
+
+.header-logo {
+  height: 48px;
+  width: auto;
+  opacity: 1;
+}
+
+/* ===== CONTENT LAYOUT ===== */
+
+.content-top {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.content-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.content-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-bottom: 10px;
+}
+
+/* ===== SPACERS ===== */
+
+.spacer-between-sections {
+  height: 60px;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.spacer-above-buttons {
+  height: 15px;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.small-spacer {
+  height: 40px;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+/* ===== BOTTOM NAVIGATION ===== */
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80px;
-  background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-light);
+  height: 70px;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 20px;
-  box-shadow: var(--shadow-lg);
+  color: white;
   z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 8px 16px;
-  border-radius: 12px;
-  min-width: 80px;
-  height: 60px;
-}
-
-.nav-item:hover {
-  background-color: var(--bg-secondary);
+  gap: 2px;
+  font-size: 11px;
 }
 
 .nav-item.active {
-  background-color: var(--kioscoin-primary);
-  color: var(--text-inverse);
-}
-
-.nav-item.active .nav-icon svg {
-  color: var(--text-inverse);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px;
+  border-radius: 10px;
 }
 
 .nav-icon {
-  margin-bottom: 4px;
-  transition: transform 0.2s ease;
+  font-size: 20px;
 }
 
-.nav-icon svg {
-  color: var(--text-secondary);
-  transition: color 0.2s ease;
-}
+/* ===== RESPONSIVE DESIGN ===== */
 
-.nav-item:hover .nav-icon svg {
-  color: var(--kioscoin-primary);
-}
+/* Mobile optimization for iPhone 14 Plus and similar large screens */
+@media screen and (max-width: 430px) and (min-height: 900px) {
+  body {
+    padding: 0;
+    display: block;
+    background: #f8fafc;
+  }
 
-.nav-item.active:hover .nav-icon svg {
-  color: var(--text-inverse);
-}
+  .screen {
+    width: 100%;
+    height: 100%;
+    background: #f8fafc;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+  }
 
-.nav-item:active .nav-icon {
-  transform: scale(0.95);
-}
+  .content {
+    padding: 3px;
+    height: calc(100vh - 87px - 70px);
+    gap: 3px;
+    overflow-y: auto;
+  }
 
-.nav-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: color 0.2s ease;
-}
+  .app-header {
+    height: 44px;
+    padding: 6px;
+  }
 
-.nav-item:hover .nav-label {
-  color: var(--kioscoin-primary);
-}
+  .header-logo {
+    height: 52px;
+  }
 
-.nav-item.active .nav-label {
-  color: var(--text-inverse);
-  font-weight: 600;
-}
+  .content-middle {
+    padding: 15px 0;
+  }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .main-content {
-    padding: 16px;
-    padding-bottom: 100px;
+  .spacer-between-sections {
+    height: 30px;
+  }
+
+  .spacer-above-buttons {
+    height: 10px;
+  }
+
+  .small-spacer {
+    height: 30px;
+  }
+
+  .content-bottom {
+    gap: 6px;
+    padding-bottom: 8px;
   }
 
   .bottom-nav {
     height: 70px;
-    padding: 0 10px;
+    bottom: 0;
+  }
+
+  .nav-icon {
+    font-size: 22px;
   }
 
   .nav-item {
-    min-width: 70px;
-    height: 50px;
-    padding: 6px 12px;
-  }
-
-  .nav-label {
-    font-size: 0.7rem;
+    font-size: 12px;
+    gap: 3px;
   }
 }
 
-@media (max-width: 480px) {
-  .nav-label {
-    font-size: 0.65rem;
-  }
-
-  .nav-item {
-    min-width: 60px;
-    padding: 4px 8px;
+/* Default desktop/mockup view */
+@media screen and (min-width: 431px) {
+  body {
+    display: block;
+    min-height: 100vh;
+    min-width: 100vw;
+    box-shadow: none;
+    border-radius: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
 }

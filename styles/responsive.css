@@ -1,0 +1,168 @@
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile optimization for iPhone 14 Plus and similar large screens */
+@media screen and (max-width: 430px) and (min-height: 900px) {
+  body {
+    padding: 0;
+    display: block;
+    background: #f8fafc;
+  }
+
+  .screen {
+    width: 100%;
+    height: 100%;
+    background: #f8fafc;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .content {
+    padding: 2px;
+    height: calc(100vh - 87px - 70px);
+    gap: 2px;
+    overflow-y: auto;
+  }
+
+  .app-header {
+    height: 44px;
+    padding: 6px;
+  }
+
+  .header-logo {
+    height: 52px;
+  }
+
+  .content-middle {
+    padding: 15px 0;
+  }
+
+  .spacer-between-sections {
+    height: 30px;
+  }
+
+  .spacer-above-buttons {
+    height: 10px;
+  }
+
+  .small-spacer {
+    height: 30px;
+  }
+
+  .content-bottom {
+    gap: 6px;
+    padding-bottom: 8px;
+  }
+
+  .bottom-nav {
+    height: 60px;
+    bottom: 0;
+  }
+
+  .nav-icon {
+    font-size: 18px;
+  }
+
+  .nav-item {
+    font-size: 12px;
+    gap: 3px;
+  }
+
+  .balance-card {
+    padding: 12px;
+  }
+
+  .balance-amount {
+    font-size: 28px;
+    gap: 8px;
+  }
+
+  .quick-actions {
+    gap: 12px;
+    padding: 8px;
+  }
+
+  .action-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .payment-methods {
+    padding: 12px;
+  }
+
+  /* ESPECÍFICO PARA MÓVILES: Fast Action más arriba */
+  .fast-action-container {
+    margin-bottom: 120px; /* Más espacio en móviles */
+    margin-top: 10px; /* Espacio arriba */
+  }
+
+  /* Ajustar el content para que no empuje el Fast Action hacia abajo */
+  .content-bottom {
+    flex: 0 0 auto; /* No expandir */
+    margin-bottom: 10px; /* Espacio antes del Fast Action */
+  }
+
+  /* Bottom nav más compacta en móviles */
+  .bottom-nav {
+    height: 60px; /* Un poco más pequeña */
+    padding: 8px 0;
+  }
+}
+
+/* Default desktop/mockup view - ELIMINAR CUALQUIER CENTRADO */
+@media screen and (min-width: 431px) {
+  body {
+    display: block;
+    min-height: 100vh;
+    min-width: 100vw;
+    box-shadow: none;
+    border-radius: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0;
+    margin: 0;
+  }
+
+  .screen {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+/* Eliminar cualquier media query que centre el contenido */
+@media screen and (min-width: 431px) {
+  /* ELIMINADO: body { display: flex; justify-content: center; align-items: center; padding: 20px; } */
+  /* ELIMINADO: .iphone-frame { width: 428px; height: 926px; background: #000; border-radius: 47px; padding: 8px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); position: relative; } */
+}
+
+/* Mobile optimization for smaller screens */
+@media screen and (max-width: 375px) {
+  .fast-action-container {
+    margin-bottom: 110px; /* Aún más espacio para pantallas pequeñas */
+  }
+
+  .balance-amount {
+    font-size: 24px;
+    flex-direction: column; /* Apilar en pantallas muy pequeñas */
+    gap: 4px;
+  }
+
+  .network-selector {
+    height: 24px;
+    min-width: 45px;
+  }
+}

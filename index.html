@@ -4,1413 +4,260 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kioscoin V2 - iPhone UI Mockup</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
-        overflow: hidden;
-        height: 100vh;
-        width: 100vw;
-      }
-
-      /* Media query for iPhone 14 Plus and similar large screens */
-      @media screen and (max-width: 430px) and (min-height: 900px) {
-        body {
-          padding: 0;
-          display: block;
-          background: #f8fafc;
-        }
-
-        .iphone-frame {
-          width: 100vw;
-          height: 100vh;
-          background: transparent;
-          border-radius: 0;
-          padding: 0;
-          box-shadow: none;
-          position: relative;
-        }
-
-        .screen {
-          width: 100%;
-          height: 100%;
-          background: #f8fafc;
-          border-radius: 0;
-          overflow: hidden;
-          position: relative;
-        }
-      }
-
-      /* Default desktop/mockup view */
-      @media screen and (min-width: 431px) {
-        body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 20px;
-        }
-
-        .iphone-frame {
-          width: 428px;
-          height: 926px;
-          background: #000;
-          border-radius: 47px;
-          padding: 8px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-          position: relative;
-        }
-      }
-
-      .screen {
-        width: 100%;
-        height: 100%;
-        background: #f8fafc;
-        border-radius: 39px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .status-bar {
-        height: 47px;
-        background: #000;
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        font-size: 17px;
-        font-weight: 600;
-      }
-
-      .signals {
-        display: flex;
-        gap: 5px;
-      }
-
-      .app-header {
-        height: 40px;
-        background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        padding: 4px;
-      }
-
-      .header-logo {
-        height: 48px;
-        width: auto;
-        opacity: 1;
-      }
-
-      .content {
-        padding: 3px;
-        height: calc(100% - 87px - 70px); /* Espacio para footer fijo */
-        overflow-y: hidden;
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-
-      /* SECCIÓN SUPERIOR: Profile + Balance (fija arriba) */
-      .content-top {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-        flex-shrink: 0; /* No se encoge */
-      }
-
-      /* SECCIÓN MEDIA: Botones con espacio flexible */
-      .content-middle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Centra los botones */
-        padding: 20px 0; /* Padding normal */
-      }
-
-      /* ESPACIADOR FÍSICO ENTRE SECCIONES */
-      .spacer-between-sections {
-        height: 60px; /* Reducido para celular real */
-        background: transparent;
-        flex-shrink: 0; /* No se encoge */
-      }
-
-      /* ESPACIADOR ARRIBA DE LOS BOTONES PARA BAJARLOS */
-      .spacer-above-buttons {
-        height: 15px; /* Reducido para celular real */
-        background: transparent;
-        flex-shrink: 0;
-      }
-
-      /* PEQUEÑO ESPACIADOR ENTRE BOTONES Y PAYMENT METHODS */
-      .small-spacer {
-        height: 40px;
-        background: transparent;
-        flex-shrink: 0;
-      }
-
-      /* SECCIÓN INFERIOR: Payment + Fast Action (pegada al fondo) */
-      .content-bottom {
-        display: flex;
-        flex-direction: column;
-        gap: 8px; /* Pequeña separación entre Payment Methods y Fast Action */
-        margin-top: auto; /* Se pega al fondo automáticamente */
-        padding-bottom: 10px;
-      }
-
-      /* Mobile optimization for iPhone 14 Plus */
-      @media screen and (max-width: 430px) and (min-height: 900px) {
-        .content {
-          padding: 3px;
-          height: calc(100vh - 87px - 70px); /* Espacio para footer fijo en móvil */
-          gap: 3px;
-          overflow-y: auto; /* Permitir scroll mínimo si es necesario */
-        }
-
-        .app-header {
-          height: 44px;
-          padding: 6px;
-        }
-
-        .header-logo {
-          height: 52px;
-        }
-
-        /* Ajustes móviles para la nueva estructura */
-        .content-middle {
-          padding: 15px 0; /* Padding normal en móvil */
-        }
-
-        .spacer-between-sections {
-          height: 30px; /* Reducido para compensar footer elevado */
-        }
-
-        .spacer-above-buttons {
-          height: 10px; /* Mínimo espacio arriba en móvil real */
-        }
-
-        .small-spacer {
-          height: 30px; /* Menos espacio en móvil */
-        }
-
-        .content-bottom {
-          padding-bottom: 6px;
-        }
-      }
-
-      .profile-stats {
-        background: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        padding: 4px 8px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .username {
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .badges {
-        display: flex;
-        gap: 8px;
-      }
-
-      .badge {
-        background: #f1f5f9;
-        padding: 4px 8px;
-        border-radius: 16px;
-        font-size: 12px;
-        font-weight: 500;
-      }
-
-      .balance-card {
-        background: white;
-        border: 2px solid #dbeafe;
-        border-radius: 16px;
-        padding: 6px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      }
-
-      .balance-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-
-      .usdc-logo {
-        width: 32px;
-        height: 32px;
-        background: #2563eb;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: bold;
-      }
-
-      .balance-amount {
-        font-size: 32px;
-        font-weight: bold;
-        color: #111827;
-      }
-
-      /* Crypto Selector Dropdown */
-      .crypto-selector-container {
-        position: relative;
-      }
-
-      .crypto-dropdown {
-        background: #2563eb;
-        border: none;
-        color: white;
-        cursor: pointer;
-      }
-
-      .crypto-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-        display: none;
-        min-width: 120px;
-        margin-top: 4px;
-      }
-
-      .crypto-dropdown-menu.show {
-        display: block;
-      }
-
-      .crypto-option {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        cursor: pointer;
-        transition: background-color 0.2s;
-      }
-
-      .crypto-option:hover {
-        background-color: #f3f4f6;
-      }
-
-      .crypto-logo-small {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        font-weight: bold;
-        color: white;
-      }
-
-      .crypto-logo-small.usdc {
-        background: #2563eb;
-      }
-
-      .crypto-logo-small.usdk {
-        background: #8b5cf6;
-      }
-
-      /* Network Selector Dropdown */
-      .network-selector-container {
-        position: relative;
-      }
-
-      .network-selector {
-        background: #f3f4f6;
-        border: 1px solid #9ca3af;
-        border-radius: 8px;
-        padding: 4px 8px;
-        font-size: 12px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .network-logo {
-        width: 16px;
-        height: 16px;
-        object-fit: contain;
-        border-radius: 2px;
-        background: transparent;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-
-      .network-text {
-        font-size: 12px;
-        font-weight: 500;
-      }
-
-      .network-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-        display: none;
-        min-width: 80px;
-        margin-top: 4px;
-      }
-
-      .network-dropdown-menu.show {
-        display: block;
-      }
-
-      .network-option {
-        padding: 8px 12px;
-        cursor: pointer;
-        transition: background-color 0.2s;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .network-option:hover {
-        background-color: #f3f4f6;
-      }
-
-      .network-option-logo {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-        border-radius: 3px;
-        background: transparent;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-
-      /* Action Containers */
-      .add-payment-container,
-      .deposit-container,
-      .transfer-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .add-payment-label,
-      .deposit-label,
-      .transfer-label {
-        font-size: 10px;
-        color: #6b7280;
-        margin-top: 4px;
-        font-weight: 500;
-        text-align: center;
-        max-width: 60px;
-        line-height: 1.2;
-      }
-
-      /* Currency Selector */
-      .currency-selector-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .currency-btn {
-        font-size: 24px;
-      }
-
-      .currency-label {
-        font-size: 10px;
-        color: #6b7280;
-        margin-top: 4px;
-        font-weight: 500;
-      }
-
-      .currency-dropdown-menu {
-        position: absolute;
-        top: -120px; /* Above the button */
-        left: 50%;
-        transform: translateX(-50%);
-        background: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-        display: none;
-        min-width: 100px;
-      }
-
-      .currency-dropdown-menu.show {
-        display: block;
-      }
-
-      .currency-option {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 12px;
-        cursor: pointer;
-        transition: background-color 0.2s;
-      }
-
-      .currency-option:hover {
-        background-color: #f3f4f6;
-      }
-
-      .currency-option:first-child {
-        border-radius: 8px 8px 0 0;
-      }
-
-      .currency-option:last-child {
-        border-radius: 0 0 8px 8px;
-      }
-
-      .flag {
-        font-size: 18px;
-      }
-
-      .currency-code {
-        font-size: 12px;
-        font-weight: 600;
-        color: #374151;
-      }
-
-      .wallet-address {
-        margin-top: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        font-family: "SF Mono", Monaco, monospace;
-        font-size: 14px;
-        color: #6b7280;
-      }
-
-      .copy-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      .quick-actions {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 0 8px;
-      }
-
-      .action-btn {
-        width: 55px;
-        height: 55px;
-        background: #f3f4f6;
-        border: 2px solid #9ca3af;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        cursor: pointer;
-      }
-
-      .payment-methods {
-        background: white;
-        border: 1px solid #fbbf24;
-        border-radius: 12px;
-        padding: 4px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .payment-title {
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: #111827;
-      }
-
-      .payment-method {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px;
-        margin-bottom: 8px;
-        background: #ecfdf5;
-        border: 1px solid #16a34a;
-        border-radius: 12px;
-      }
-
-      .add-method {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px;
-        background: #fef3c7;
-        border: 1px solid #f59e0b;
-        border-radius: 12px;
-        margin-bottom: 12px;
-        cursor: pointer;
-      }
-
-      .transfer-section {
-        background: #f0f9ff;
-        border: 1px solid #0284c7;
-        border-radius: 12px;
-        padding: 12px;
-      }
-
-      /* Fast Action Container */
-      .fast-action-container {
-        background: white;
-        border: 2px solid #8b5cf6;
-        border-radius: 12px;
-        padding: 4px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      }
-
-      .fast-action-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 6px;
-      }
-
-      .fast-action-left {
-        flex: 1;
-      }
-
-      .fast-action-title {
-        font-size: 14px;
-        font-weight: 600;
-        color: #8b5cf6;
-        margin-bottom: 4px;
-      }
-
-      .fast-action-info {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .crypto-amount {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .fast-action-logo {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-      }
-
-      .amount {
-        font-size: 14px;
-        font-weight: 600;
-        color: #111827;
-      }
-
-      .network-info {
-        font-size: 12px;
-        color: #6b7280;
-      }
-
-      .operator-info {
-        font-size: 11px;
-        color: #9ca3af;
-        font-style: italic;
-      }
-
-      /* Buy/Sell Switch */
-      .fast-action-right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .buy-sell-container {
-        background: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 16px;
-        padding: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .buy-sell-switch {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .switch-input {
-        display: none;
-      }
-
-      .switch-label {
-        display: flex;
-        align-items: center;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 18px;
-        padding: 3px;
-        cursor: pointer;
-        position: relative;
-        width: 110px;
-        height: 36px;
-        transition: all 0.3s ease;
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-      }
-
-      .switch-text {
-        font-size: 11px;
-        font-weight: 600;
-        z-index: 2;
-        transition: color 0.3s ease;
-        width: 50%;
-        text-align: center;
-        position: relative;
-      }
-
-      .buy-text {
-        color: #16a34a;
-        font-weight: 700;
-      }
-
-      .sell-text {
-        color: #64748b;
-      }
-
-      .switch-slider {
-        position: absolute;
-        top: 50%;
-        left: 3px;
-        transform: translateY(-50%);
-        width: 52px;
-        height: 30px;
-        background: linear-gradient(135deg, #16a34a, #22c55e);
-        border-radius: 15px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 2px 4px rgba(22, 163, 74, 0.3),
-          0 1px 2px rgba(0, 0, 0, 0.1);
-      }
-
-      .switch-input:checked + .switch-label .switch-slider {
-        transform: translateX(54px) translateY(-50%);
-        background: linear-gradient(135deg, #dc2626, #ef4444);
-        box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3),
-          0 1px 2px rgba(0, 0, 0, 0.1);
-      }
-
-      .switch-input:checked + .switch-label .buy-text {
-        color: #64748b;
-        font-weight: 500;
-      }
-
-      .switch-input:checked + .switch-label .sell-text {
-        color: #dc2626;
-        font-weight: 700;
-      }
-
-      /* Kioscoin Action */
-      .fast-action-button-container {
-        margin-top: 6px;
-      }
-
-      .kioscoin-action {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 4px;
-      }
-
-      .kioscoin-text {
-        font-size: 16px;
-        font-weight: 700;
-        color: #8b5cf6;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-        text-align: right;
-      }
-
-      .kioscoin-square-btn {
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
-        animation: blink-button 1.5s infinite;
-        position: relative;
-      }
-
-      @keyframes blink-button {
-        0%,
-        100% {
-          transform: translateY(0);
-          box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2),
-            0 0 0 0 rgba(251, 191, 36, 0);
-        }
-        50% {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3),
-            0 0 15px 3px rgba(251, 191, 36, 0.5);
-        }
-      }
-
-      .kioscoin-square-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4),
-          0 0 20px 5px rgba(251, 191, 36, 0.6);
-        animation: none;
-      }
-
-      .kioscoin-square-btn:active {
-        transform: translateY(0);
-        animation: none;
-      }
-
-      .kioscoin-logo {
-        height: 44px;
-        width: auto;
-        opacity: 1;
-      }
-
-      .bottom-nav {
-        position: fixed; /* FIXED para que esté siempre en la misma posición */
-        bottom: 0; /* PEGADO al fondo, sin gap */
-        left: 0;
-        right: 0;
-        height: 70px;
-        background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        color: white;
-        z-index: 1000; /* Muy alto para estar arriba de todo */
-        padding-bottom: env(safe-area-inset-bottom); /* Respeta área segura del iPhone */
-      }
-
-      .nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-        font-size: 11px;
-      }
-
-      .nav-item.active {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 6px;
-        border-radius: 10px;
-      }
-
-      .nav-icon {
-        font-size: 20px;
-      }
-
-              /* Mobile specific adjustments */
-        @media screen and (max-width: 430px) and (min-height: 900px) {
-          .bottom-nav {
-            height: 70px;
-            bottom: 0; /* PEGADO al fondo en móvil también */
-          }
-          
-          .content-bottom {
-            gap: 6px; /* Separación más pequeña en móvil */
-            padding-bottom: 8px;
-          }
-
-        .nav-icon {
-          font-size: 22px;
-        }
-
-        .nav-item {
-          font-size: 12px;
-          gap: 3px;
-        }
-      }
-
-      /* Transfer Modal */
-      .transfer-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        backdrop-filter: blur(4px);
-      }
-
-      .transfer-modal.show {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .transfer-modal-content {
-        background: white;
-        border-radius: 16px;
-        width: 90%;
-        max-width: 400px;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        animation: modalSlideIn 0.3s ease-out;
-      }
-
-      @keyframes modalSlideIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9) translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1) translateY(0);
-        }
-      }
-
-      .transfer-modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 24px 16px;
-        border-bottom: 1px solid #f3f4f6;
-      }
-
-      .transfer-modal-header h3 {
-        margin: 0;
-        font-size: 18px;
-        font-weight: 600;
-        color: #111827;
-      }
-
-      .close-modal {
-        background: none;
-        border: none;
-        font-size: 20px;
-        color: #6b7280;
-        cursor: pointer;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.2s;
-      }
-
-      .close-modal:hover {
-        background: #f3f4f6;
-      }
-
-      .transfer-modal-body {
-        padding: 24px;
-      }
-
-      .input-group {
-        margin-bottom: 24px;
-      }
-
-      .input-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 14px;
-        font-weight: 500;
-        color: #374151;
-      }
-
-      .wallet-input {
-        width: 100%;
-        padding: 12px 16px;
-        border: 1px solid #d1d5db;
-        border-radius: 12px;
-        font-size: 14px;
-        transition: border-color 0.2s, box-shadow 0.2s;
-        font-family: "SF Mono", Monaco, monospace;
-        background: #f9fafb;
-        box-sizing: border-box;
-      }
-
-      .wallet-input:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        background: white;
-      }
-
-      .wallet-input::placeholder {
-        color: #9ca3af;
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      }
-
-      .transfer-actions {
-        margin-bottom: 16px;
-      }
-
-      .transfer-btn {
-        width: 100%;
-        background: #3b82f6;
-        color: white;
-        border: none;
-        padding: 14px 20px;
-        border-radius: 12px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-
-      .transfer-btn:hover {
-        background: #2563eb;
-        transform: translateY(-1px);
-      }
-
-      .transfer-btn:active {
-        transform: translateY(0);
-      }
-
-      .transfer-message {
-        text-align: center;
-        font-size: 14px;
-        font-weight: 500;
-        padding: 8px 12px;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-      }
-
-      .transfer-message.error {
-        color: #dc2626;
-        background: #fef2f2;
-        border: 1px solid #fecaca;
-      }
-
-      .transfer-message.success {
-        color: #059669;
-        background: #ecfdf5;
-        border: 1px solid #a7f3d0;
-      }
-
-      /* Deposit Modal Specific Styles */
-      .wallet-address-container {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .deposit-address {
-        flex: 1;
-        background: #f3f4f6 !important;
-        color: #374151;
-        cursor: default;
-      }
-
-      .deposit-address:focus {
-        border-color: #d1d5db !important;
-        box-shadow: none !important;
-        background: #f3f4f6 !important;
-      }
-
-      .copy-btn {
-        background: #10b981;
-        color: white;
-        border: none;
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-        white-space: nowrap;
-        min-width: 60px;
-      }
-
-      .copy-btn:hover {
-        background: #059669;
-        transform: translateY(-1px);
-      }
-
-      .copy-btn:active {
-        transform: translateY(0);
-      }
-
-      .copy-btn.copied {
-        background: #6366f1;
-      }
-
-      .close-message-btn {
-        background: #ef4444;
-        color: white;
-        border: none;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        cursor: pointer;
-        margin-left: 8px;
-        transition: all 0.2s;
-      }
-
-      .close-message-btn:hover {
-        background: #dc2626;
-      }
-
-      .close-message-btn.success-btn {
-        background: #10b981;
-        color: white;
-      }
-
-      .close-message-btn.success-btn:hover {
-        background: #059669;
-      }
-
-      /* Payment Methods Dynamic Styles */
-      .payment-methods-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .view-more-container {
-        margin-top: 8px;
-        text-align: center;
-      }
-
-      .view-more-btn {
-        background: #f3f4f6;
-        color: #6b7280;
-        border: 1px solid #d1d5db;
-        padding: 6px 12px;
-        border-radius: 6px;
-        font-size: 12px;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-
-      .view-more-btn:hover {
-        background: #e5e7eb;
-        color: #374151;
-      }
-
-      .all-methods-list {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .all-methods-list .payment-method {
-        padding: 16px;
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .method-info {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .method-name-full {
-        font-weight: 600;
-        color: #111827;
-      }
-
-      .method-details-full {
-        font-size: 12px;
-        color: #6b7280;
-        font-family: "SF Mono", Monaco, monospace;
-      }
-
-      .add-payment-trigger {
-        cursor: pointer;
-        transition: transform 0.2s;
-      }
-
-      .add-payment-trigger:hover {
-        transform: scale(1.05);
-      }
-    </style>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
   </head>
   <body>
-    <div class="iphone-frame">
-      <div class="screen">
-        <div class="status-bar">
-          <span>3:57</span>
-          <div class="signals">
-            <span>📶</span>
-            <span>📶</span>
-            <span>🔋</span>
+    <div class="screen">
+      <div class="status-bar">
+        <span>3:57</span>
+        <div class="signals">
+          <span>📶</span>
+          <span>📶</span>
+          <span>🔋</span>
+        </div>
+      </div>
+
+      <div class="app-header">
+        <img
+          src="./KioscoinBrandLao/kioscoin-logotipo-blanco.png"
+          alt="Kioscoin"
+          class="header-logo"
+        />
+      </div>
+
+      <div class="content">
+        <!-- SECCIÓN SUPERIOR: Profile + Balance -->
+        <div class="content-top">
+          <div class="profile-stats">
+          <div class="username">👤 @Alv</div>
+          <div class="badges">
+            <span class="badge">7⭕</span>
+            <span class="badge">5⭐</span>
+            <span class="badge">12992.31m⏱️</span>
           </div>
         </div>
 
-        <div class="app-header">
-          <img
-            src="./KioscoinBrandLao/kioscoin-logotipo-blanco.png"
-            alt="Kioscoin"
-            class="header-logo"
-          />
-        </div>
-
-        <div class="content">
-          <!-- SECCIÓN SUPERIOR: Profile + Balance -->
-          <div class="content-top">
-            <div class="profile-stats">
-            <div class="username">👤 @Alv</div>
-            <div class="badges">
-              <span class="badge">7⭕</span>
-              <span class="badge">5⭐</span>
-              <span class="badge">12992.31m⏱️</span>
-            </div>
-          </div>
-
-          <div class="balance-card">
-            <div class="balance-header">
-              <div class="crypto-selector-container">
-                <button class="usdc-logo crypto-dropdown" id="cryptoDropdown">
-                  $
-                </button>
-                <div class="crypto-dropdown-menu" id="cryptoDropdownMenu">
-                  <div class="crypto-option" data-crypto="USDC">
-                    <div class="crypto-logo-small usdc">$</div>
-                    <span>USDC</span>
-                  </div>
-                  <div class="crypto-option" data-crypto="USDK">
-                    <div class="crypto-logo-small usdk">₭</div>
-                    <span>USDK</span>
-                  </div>
+        <div class="balance-card">
+          <div class="balance-header">
+            <div class="crypto-selector-container">
+              <button class="usdc-logo crypto-dropdown" id="cryptoDropdown">
+                $
+              </button>
+              <div class="crypto-dropdown-menu" id="cryptoDropdownMenu">
+                <div class="crypto-option" data-crypto="USDC">
+                  <div class="crypto-logo-small usdc">$</div>
+                  <span>USDC</span>
+                </div>
+                <div class="crypto-option" data-crypto="USDK">
+                  <div class="crypto-logo-small usdk">₭</div>
+                  <span>USDK</span>
                 </div>
               </div>
-              <div class="balance-amount">$ 102.89</div>
-              <div class="network-selector-container">
-                <button
-                  class="network-selector network-dropdown"
-                  id="networkDropdown"
+            </div>
+                        <div class="balance-amount">
+              $ 102.89
+            </div>
+            <div class="network-selector-container">
+              <button
+                class="network-selector network-dropdown"
+                id="networkDropdown"
+              >
+                <img
+                  src="./Logos/BNBLOGO.png"
+                  alt="BNB"
+                  class="network-logo"
+                  id="selectedNetworkLogo"
+                  onerror="this.style.display='none'; this.nextElementSibling.textContent='🔗 ' + this.nextElementSibling.textContent;"
+                />
+                <span class="network-text">BNB</span>
+              </button>
+              <div class="network-dropdown-menu" id="networkDropdownMenu">
+                <div
+                  class="network-option"
+                  data-network="BNB"
+                  data-logo="./Logos/BNBLOGO.png"
                 >
                   <img
                     src="./Logos/BNBLOGO.png"
                     alt="BNB"
-                    class="network-logo"
-                    id="selectedNetworkLogo"
-                    onerror="this.style.display='none'; this.nextElementSibling.textContent='🔗 ' + this.nextElementSibling.textContent;"
+                    class="network-option-logo"
+                    onerror="this.style.display='none'"
                   />
-                  <span class="network-text">BNB</span>
-                </button>
-                <div class="network-dropdown-menu" id="networkDropdownMenu">
-                  <div
-                    class="network-option"
-                    data-network="BNB"
-                    data-logo="./Logos/BNBLOGO.png"
-                  >
-                    <img
-                      src="./Logos/BNBLOGO.png"
-                      alt="BNB"
-                      class="network-option-logo"
-                      onerror="this.style.display='none'"
-                    />
-                    <span>BNB</span>
-                  </div>
-                  <div
-                    class="network-option"
-                    data-network="ARB"
-                    data-logo="./Logos/ARBLogo.png"
-                  >
-                    <img
-                      src="./Logos/ARBLogo.png"
-                      alt="ARB"
-                      class="network-option-logo"
-                      onerror="this.style.display='none'"
-                    />
-                    <span>ARB</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="wallet-address">
-              👛 0x2501...A6e18F
-              <button class="copy-btn">📋</button>
-            </div>
-          </div>
-          <!-- FIN SECCIÓN SUPERIOR -->
-
-          <!-- SECCIÓN MEDIA: Botones con espacio -->
-          <div class="content-middle">
-            <!-- ESPACIADOR PARA BAJAR LOS BOTONES -->
-            <div class="spacer-above-buttons"></div>
-            <div class="quick-actions">
-            <div class="currency-selector-container">
-              <button class="action-btn currency-btn" id="currencyBtn">
-                🇦🇷
-              </button>
-              <div class="currency-label">Currency</div>
-              <div class="currency-dropdown-menu" id="currencyDropdownMenu">
-                <div
-                  class="currency-option"
-                  data-currency="ARS"
-                  data-flag="🇦🇷"
-                  data-amount="$1230, ARS"
-                >
-                  <span class="flag">🇦🇷</span>
-                  <span class="currency-code">ARS</span>
+                  <span>BNB</span>
                 </div>
                 <div
-                  class="currency-option"
-                  data-currency="BOB"
-                  data-flag="🇧🇴"
-                  data-amount="6.9, BOB"
+                  class="network-option"
+                  data-network="ARB"
+                  data-logo="./Logos/ARBLogo.png"
                 >
-                  <span class="flag">🇧🇴</span>
-                  <span class="currency-code">BOB</span>
-                </div>
-                <div
-                  class="currency-option"
-                  data-currency="EUR"
-                  data-flag="🇪🇺"
-                  data-amount="€0.86, EUR"
-                >
-                  <span class="flag">🇪🇺</span>
-                  <span class="currency-code">EUR</span>
-                </div>
-                <div
-                  class="currency-option"
-                  data-currency="USD"
-                  data-flag="🇺🇸"
-                  data-amount="$0.99, USD"
-                >
-                  <span class="flag">🇺🇸</span>
-                  <span class="currency-code">USD</span>
-                </div>
-              </div>
-            </div>
-            <div class="add-payment-container">
-              <div class="action-btn">➕</div>
-              <div class="add-payment-label">Add payment</div>
-            </div>
-            <div class="deposit-container">
-              <div class="action-btn">⬇️</div>
-              <div class="deposit-label">Deposit USDC</div>
-            </div>
-            <div class="transfer-container">
-              <div class="action-btn">⬆️</div>
-              <div class="transfer-label">Transfer USDC</div>
-            </div>
-          </div>
-          <!-- FIN SECCIÓN MEDIA -->
-
-          <!-- PEQUEÑO ESPACIADOR ENTRE BOTONES Y PAYMENT METHODS -->
-          <div class="small-spacer"></div>
-
-          <!-- SECCIÓN INFERIOR: Payment + Fast Action al fondo -->
-          <div class="content-bottom">
-            <div class="payment-methods">
-            <div class="payment-title">PAYMENT METHODS</div>
-            <div id="paymentMethodsList" class="payment-methods-list">
-              <!-- Payment methods will be populated dynamically -->
-            </div>
-            <div
-              id="viewMoreContainer"
-              class="view-more-container"
-              style="display: none"
-            >
-              <button id="viewMoreBtn" class="view-more-btn">Ver todos</button>
-            </div>
-          </div>
-
-          <!-- Fast Action Container -->
-          <div class="fast-action-container">
-            <div class="fast-action-header">
-              <div class="fast-action-left">
-                <div class="fast-action-title">Fast Action</div>
-                <div class="fast-action-info">
-                  <div class="crypto-amount">
-                    <img
-                      src="./Logos/USDCLogo.png"
-                      alt="USDC"
-                      class="fast-action-logo"
-                    />
-                    <span class="amount">USDC for $1230, ARS</span>
-                  </div>
-                  <div class="network-info">
-                    On BNB or ARB Networks in less than 5 minutes!
-                  </div>
-                  <div class="operator-info">Operated by Kioscoin</div>
-                </div>
-              </div>
-              <div class="fast-action-right">
-                <div class="buy-sell-container">
-                  <div class="buy-sell-switch">
-                    <input
-                      type="checkbox"
-                      id="buySellSwitch"
-                      class="switch-input"
-                    />
-                    <label for="buySellSwitch" class="switch-label">
-                      <span class="switch-text buy-text">BUY</span>
-                      <span class="switch-slider"></span>
-                      <span class="switch-text sell-text">SELL</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="fast-action-button-container">
-              <div class="kioscoin-action">
-                <span class="kioscoin-text">GO TO KIOSCOIN! →</span>
-                <button class="kioscoin-square-btn">
                   <img
-                    src="./KioscoinBrandLao/kioscoin-isotipo.png"
-                    alt="Kioscoin"
-                    class="kioscoin-logo"
+                    src="./Logos/ARBLogo.png"
+                    alt="ARB"
+                    class="network-option-logo"
+                    onerror="this.style.display='none'"
                   />
-                </button>
+                  <span>ARB</span>
+                </div>
+                </div>
+              </div>
+          </div>
+          <div class="wallet-address">
+            👛 0x2501...A6e18F
+            <button class="copy-btn">📋</button>
+          </div>
+        </div>
+        <!-- FIN SECCIÓN SUPERIOR -->
+
+        <!-- SECCIÓN MEDIA: Botones con espacio -->
+        <div class="content-middle">
+          <!-- ESPACIADOR PARA BAJAR LOS BOTONES -->
+          <div class="spacer-above-buttons"></div>
+          <div class="quick-actions">
+          <div class="currency-selector-container">
+            <button class="action-btn currency-btn" id="currencyBtn">
+              🇦🇷
+            </button>
+            <div class="currency-label">Currency</div>
+            <div class="currency-dropdown-menu" id="currencyDropdownMenu">
+              <div
+                class="currency-option"
+                data-currency="ARS"
+                data-flag="🇦🇷"
+                data-amount="$1230, ARS"
+              >
+                <span class="flag">🇦🇷</span>
+                <span class="currency-code">ARS</span>
+              </div>
+              <div
+                class="currency-option"
+                data-currency="BOB"
+                data-flag="🇧🇴"
+                data-amount="6.9, BOB"
+              >
+                <span class="flag">🇧🇴</span>
+                <span class="currency-code">BOB</span>
+              </div>
+              <div
+                class="currency-option"
+                data-currency="EUR"
+                data-flag="🇪🇺"
+                data-amount="€0.86, EUR"
+              >
+                <span class="flag">🇪🇺</span>
+                <span class="currency-code">EUR</span>
+              </div>
+              <div
+                class="currency-option"
+                data-currency="USD"
+                data-flag="🇺🇸"
+                data-amount="$0.99, USD"
+              >
+                <span class="flag">🇺🇸</span>
+                <span class="currency-code">USD</span>
               </div>
             </div>
           </div>
-          <!-- FIN SECCIÓN INFERIOR -->
+          <div class="add-payment-container">
+            <div class="action-btn">➕</div>
+            <div class="add-payment-label">Add payment</div>
+          </div>
+          <div class="deposit-container">
+            <div class="action-btn">⬇️</div>
+            <div class="deposit-label">Deposit USDC</div>
+          </div>
+          <div class="transfer-container">
+            <div class="action-btn">⬆️</div>
+            <div class="transfer-label">Transfer USDC</div>
+          </div>
+        </div>
+        <!-- FIN SECCIÓN MEDIA -->
+
+        <!-- PEQUEÑO ESPACIADOR ENTRE BOTONES Y PAYMENT METHODS -->
+        <div class="small-spacer"></div>
+
+        <!-- SECCIÓN INFERIOR: Payment Methods -->
+        <div class="content-bottom">
+          <div class="payment-methods">
+          <div class="payment-title">PAYMENT METHODS</div>
+          <div id="paymentMethodsList" class="payment-methods-list">
+            <!-- Payment methods will be populated dynamically -->
+          </div>
+          <div
+            id="viewMoreContainer"
+            class="view-more-container"
+            style="display: none"
+          >
+            <button id="viewMoreBtn" class="view-more-btn">Ver todos</button>
+          </div>
+        </div>
         </div>
 
-        <div class="bottom-nav">
-          <div class="nav-item">
-            <div class="nav-icon">🏠</div>
-            <div>Home</div>
+        <!-- Fast Action Container - FUERA DE CONTENT-BOTTOM -->
+        <div class="fast-action-container">
+          <div class="fast-action-header">
+            <div class="fast-action-left">
+              <div class="fast-action-title">Fast Action</div>
+              <div class="fast-action-info">
+                <div class="crypto-amount">
+                  <img
+                    src="./Logos/USDCLogo.png"
+                    alt="USDC"
+                    class="fast-action-logo"
+                  />
+                  <span class="amount">USDC for $1230, ARS</span>
+                </div>
+                <div class="network-info">
+                  On BNB or ARB Networks in less than 5 minutes!
+                </div>
+                <div class="operator-info">Operated by Kioscoin</div>
+              </div>
+            </div>
+            <div class="fast-action-right">
+              <div class="buy-sell-container">
+                <div class="buy-sell-switch">
+                  <input
+                    type="checkbox"
+                    id="buySellSwitch"
+                    class="switch-input"
+                  />
+                  <label for="buySellSwitch" class="switch-label">
+                    <span class="switch-text buy-text">BUY</span>
+                    <span class="switch-slider"></span>
+                    <span class="switch-text sell-text">SELL</span>
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="nav-item">
-            <div class="nav-icon">📦</div>
-            <div>Orders</div>
+          <div class="fast-action-button-container">
+            <div class="kioscoin-action">
+              <span class="kioscoin-text">GO TO KIOSCOIN! →</span>
+              <button class="kioscoin-square-btn">
+                <img
+                  src="./KioscoinBrandLao/kioscoin-isotipo.png"
+                  alt="Kioscoin"
+                  class="kioscoin-logo"
+                />
+              </button>
+            </div>
           </div>
-          <div class="nav-item active">
-            <div class="nav-icon">👤</div>
-            <div>Profile</div>
-          </div>
+        </div>
+      </div>
+
+      <div class="bottom-nav">
+        <div class="nav-item">
+          <div class="nav-icon">🏠</div>
+          <div>Home</div>
+        </div>
+        <div class="nav-item">
+          <div class="nav-icon">📦</div>
+          <div>Orders</div>
+        </div>
+        <div class="nav-item active">
+          <div class="nav-icon">👤</div>
+          <div>Profile</div>
         </div>
       </div>
     </div>
@@ -1517,469 +364,8 @@
       </div>
     </div>
 
-    <script>
-      // Crypto Dropdown
-      const cryptoDropdown = document.getElementById("cryptoDropdown");
-      const cryptoDropdownMenu = document.getElementById("cryptoDropdownMenu");
-      const cryptoOptions = document.querySelectorAll(".crypto-option");
-
-      cryptoDropdown.addEventListener("click", (e) => {
-        e.stopPropagation();
-        cryptoDropdownMenu.classList.toggle("show");
-        networkDropdownMenu.classList.remove("show"); // Close other dropdown
-      });
-
-      cryptoOptions.forEach((option) => {
-        option.addEventListener("click", (e) => {
-          const crypto = option.dataset.crypto;
-          const logoElement = option
-            .querySelector(".crypto-logo-small")
-            .cloneNode(true);
-
-          // Update main logo
-          cryptoDropdown.innerHTML = logoElement.innerHTML;
-          cryptoDropdown.className = `usdc-logo crypto-dropdown ${logoElement.className}`;
-
-          // Update balance display
-          const balanceAmount = document.querySelector(".balance-amount");
-          if (crypto === "USDC") {
-            balanceAmount.textContent = "$ 102.89";
-          } else {
-            balanceAmount.textContent = "₭ 873.75";
-          }
-
-          cryptoDropdownMenu.classList.remove("show");
-        });
-      });
-
-      // Network Dropdown
-      const networkDropdown = document.getElementById("networkDropdown");
-      const networkDropdownMenu = document.getElementById(
-        "networkDropdownMenu"
-      );
-      const networkOptions = document.querySelectorAll(".network-option");
-
-      // Debug: Check if logos load properly
-      const allLogos = document.querySelectorAll(
-        ".network-logo, .network-option-logo"
-      );
-      allLogos.forEach((logo) => {
-        logo.onload = () => console.log(`✅ Logo loaded: ${logo.src}`);
-        logo.onerror = () => console.log(`❌ Logo failed: ${logo.src}`);
-      });
-
-      networkDropdown.addEventListener("click", (e) => {
-        e.stopPropagation();
-        networkDropdownMenu.classList.toggle("show");
-        cryptoDropdownMenu.classList.remove("show"); // Close other dropdown
-      });
-
-      networkOptions.forEach((option) => {
-        option.addEventListener("click", (e) => {
-          const network = option.dataset.network;
-          const logoSrc = option.dataset.logo;
-
-          // Update the selected network logo and text
-          const selectedLogo = document.getElementById("selectedNetworkLogo");
-          const networkText = networkDropdown.querySelector(".network-text");
-
-          selectedLogo.src = logoSrc;
-          selectedLogo.alt = network;
-          networkText.textContent = network;
-
-          networkDropdownMenu.classList.remove("show");
-        });
-      });
-
-      // Currency Dropdown
-      const currencyBtn = document.getElementById("currencyBtn");
-      const currencyDropdownMenu = document.getElementById(
-        "currencyDropdownMenu"
-      );
-      const currencyOptions = document.querySelectorAll(".currency-option");
-
-      currencyBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        currencyDropdownMenu.classList.toggle("show");
-        cryptoDropdownMenu.classList.remove("show");
-        networkDropdownMenu.classList.remove("show");
-      });
-
-      currencyOptions.forEach((option) => {
-        option.addEventListener("click", (e) => {
-          const flag = option.dataset.flag;
-          const currency = option.dataset.currency;
-          const amount = option.dataset.amount;
-
-          // Update button with selected flag
-          currencyBtn.textContent = flag;
-
-          // Update Fast Action amount using the new price display function
-          updatePriceDisplay();
-
-          // Update payment methods based on currency
-          updatePaymentMethods(currency);
-
-          // Close dropdown
-          currencyDropdownMenu.classList.remove("show");
-
-          console.log(
-            `Selected currency: ${currency} ${flag} - Amount: ${amount}`
-          );
-        });
-      });
-
-      // Transfer Modal Functionality
-      const transferContainer = document.querySelector(".transfer-container");
-      const transferModal = document.getElementById("transferModal");
-      const closeTransferModal = document.getElementById("closeTransferModal");
-      const transferBtn = document.getElementById("transferBtn");
-      const walletAddressInput = document.getElementById("walletAddress");
-      const transferMessage = document.getElementById("transferMessage");
-      const transferModalTitle = document.getElementById("transferModalTitle");
-
-      // Deposit Modal Functionality
-      const depositContainer = document.querySelector(".deposit-container");
-      const depositModal = document.getElementById("depositModal");
-      const closeDepositModal = document.getElementById("closeDepositModal");
-      const copyAddressBtn = document.getElementById("copyAddressBtn");
-      const depositWalletAddress = document.getElementById(
-        "depositWalletAddress"
-      );
-      const depositMessage = document.getElementById("depositMessage");
-      const depositModalTitle = document.getElementById("depositModalTitle");
-
-      // Payment Methods Data
-      const paymentMethodsData = {
-        ARS: [
-          { name: "💰 Mercado Pago", details: "****1234", icon: "💰" },
-          { name: "🏦 Banco Santander", details: "****5678", icon: "🏦" },
-        ],
-        BOB: [
-          { name: "📱 YASTA", details: "****9012", icon: "📱" },
-          { name: "💳 Billetera Movil BCP", details: "****3456", icon: "💳" },
-        ],
-        EUR: [
-          { name: "🏦 Revolut", details: "****7890", icon: "🏦" },
-          { name: "🏦 N26", details: "****2468", icon: "🏦" },
-        ],
-        USD: [
-          { name: "💸 WISE", details: "****1357", icon: "💸" },
-          { name: "🏦 Revolut", details: "****2468", icon: "🏦" },
-          { name: "💳 Zinli", details: "****9753", icon: "💳" },
-        ],
-      };
-
-      // Payment Methods Modal Elements
-      const viewMoreBtn = document.getElementById("viewMoreBtn");
-      const viewMoreContainer = document.getElementById("viewMoreContainer");
-      const viewAllMethodsModal = document.getElementById(
-        "viewAllMethodsModal"
-      );
-      const closeViewAllModal = document.getElementById("closeViewAllModal");
-      const allPaymentMethodsList = document.getElementById(
-        "allPaymentMethodsList"
-      );
-      const paymentMethodsList = document.getElementById("paymentMethodsList");
-
-      // Add Payment Method Modal Elements
-      const addPaymentModal = document.getElementById("addPaymentModal");
-      const closeAddPaymentModal = document.getElementById(
-        "closeAddPaymentModal"
-      );
-      const addPaymentTitle = document.getElementById("addPaymentTitle");
-      const methodNameInput = document.getElementById("methodName");
-      const methodCodeInput = document.getElementById("methodCode");
-      const methodCodeLabel = document.getElementById("methodCodeLabel");
-      const addMethodBtn = document.getElementById("addMethodBtn");
-      const addMethodMessage = document.getElementById("addMethodMessage");
-
-      // Open transfer modal
-      transferContainer.addEventListener("click", () => {
-        // Update modal title based on selected network
-        const selectedNetwork =
-          document.querySelector(".network-text").textContent;
-        if (selectedNetwork === "BNB") {
-          transferModalTitle.textContent = "Transferir USDC (BEP-20)";
-        } else if (selectedNetwork === "ARB") {
-          transferModalTitle.textContent = "Transferir USDC (ERC-20)";
-        }
-
-        transferModal.classList.add("show");
-        transferMessage.textContent = "";
-        transferMessage.className = "transfer-message";
-        walletAddressInput.value = "";
-      });
-
-      // Close modal
-      closeTransferModal.addEventListener("click", () => {
-        transferModal.classList.remove("show");
-      });
-
-      // Close modal when clicking outside
-      transferModal.addEventListener("click", (e) => {
-        if (e.target === transferModal) {
-          transferModal.classList.remove("show");
-        }
-      });
-
-      // Transfer button logic
-      transferBtn.addEventListener("click", () => {
-        const walletAddress = walletAddressInput.value.trim();
-
-        if (!walletAddress) {
-          transferMessage.textContent = "Pegar dirección válida";
-          transferMessage.className = "transfer-message error";
-        } else {
-          transferMessage.textContent = "Transferencia realizada con éxito";
-          transferMessage.className = "transfer-message success";
-
-          // Close modal after 2 seconds
-          setTimeout(() => {
-            transferModal.classList.remove("show");
-          }, 2000);
-        }
-      });
-
-      // Open deposit modal
-      depositContainer.addEventListener("click", () => {
-        // Update modal title based on selected network
-        const selectedNetwork =
-          document.querySelector(".network-text").textContent;
-        if (selectedNetwork === "BNB") {
-          depositModalTitle.textContent = "Deposit USDC (BEP-20)";
-        } else if (selectedNetwork === "ARB") {
-          depositModalTitle.textContent = "Deposit USDK (ERC-20)";
-        }
-
-        depositModal.classList.add("show");
-        depositMessage.textContent = "";
-        depositMessage.className = "transfer-message";
-        copyAddressBtn.textContent = "Copy";
-        copyAddressBtn.classList.remove("copied");
-      });
-
-      // Close deposit modal
-      closeDepositModal.addEventListener("click", () => {
-        depositModal.classList.remove("show");
-      });
-
-      // Close deposit modal when clicking outside
-      depositModal.addEventListener("click", (e) => {
-        if (e.target === depositModal) {
-          depositModal.classList.remove("show");
-        }
-      });
-
-      // Copy address functionality
-      copyAddressBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(depositWalletAddress.value);
-          copyAddressBtn.textContent = "Copied";
-          copyAddressBtn.classList.add("copied");
-
-          depositMessage.innerHTML = `
-            <span>Dirección copiada al portapapeles</span>
-            <button class="close-message-btn success-btn" onclick="this.parentElement.textContent=''; this.parentElement.className='transfer-message';">✅</button>
-          `;
-          depositMessage.className = "transfer-message success";
-
-          // Reset copy button after 3 seconds
-          setTimeout(() => {
-            copyAddressBtn.textContent = "Copy";
-            copyAddressBtn.classList.remove("copied");
-          }, 3000);
-        } catch (err) {
-          depositMessage.textContent = "Error al copiar la dirección";
-          depositMessage.className = "transfer-message error";
-        }
-      });
-
-      // Payment Methods Functions
-      function updatePaymentMethods(currency) {
-        const methods = paymentMethodsData[currency] || [];
-        const maxVisible = 2;
-
-        // Clear current methods
-        paymentMethodsList.innerHTML = "";
-
-        // Show up to 2 methods
-        const visibleMethods = methods.slice(0, maxVisible);
-        visibleMethods.forEach((method) => {
-          const methodElement = document.createElement("div");
-          methodElement.className = "payment-method";
-          methodElement.innerHTML = `
-            <span>${method.name}</span>
-            <span>✅</span>
-          `;
-          paymentMethodsList.appendChild(methodElement);
-        });
-
-        // Show "Ver más" button if there are 3 or more methods
-        if (methods.length >= 3) {
-          viewMoreContainer.style.display = "block";
-        } else {
-          viewMoreContainer.style.display = "none";
-        }
-      }
-
-      function openAddPaymentModal(currency) {
-        const fieldLabels = {
-          ARS: { field: "CVU", placeholder: "Ej: 0000003100010000000001" },
-          BOB: { field: "CVU", placeholder: "Ej: 0000003100010000000001" },
-          EUR: {
-            field: "IBAN",
-            placeholder: "Ej: ES91 2100 0418 4502 0005 1332",
-          },
-          USD: { field: "SWIFT", placeholder: "Ej: CHASUS33XXX" },
-        };
-
-        const config = fieldLabels[currency];
-        addPaymentTitle.textContent = `Agregar método de pago (${currency})`;
-        methodCodeLabel.textContent = config.field;
-        methodCodeInput.placeholder = config.placeholder;
-
-        methodNameInput.value = "";
-        methodCodeInput.value = "";
-        addMethodMessage.textContent = "";
-        addMethodMessage.className = "transfer-message";
-
-        addPaymentModal.classList.add("show");
-      }
-
-      // View More Methods Modal
-      viewMoreBtn.addEventListener("click", () => {
-        const currentCurrency = getCurrentCurrency();
-        const methods = paymentMethodsData[currentCurrency] || [];
-
-        // Update modal title
-        const allMethodsTitle = document.getElementById("allMethodsTitle");
-        allMethodsTitle.textContent = `Métodos de pago (${currentCurrency})`;
-
-        allPaymentMethodsList.innerHTML = "";
-        methods.forEach((method) => {
-          const methodElement = document.createElement("div");
-          methodElement.className = "payment-method";
-          methodElement.innerHTML = `
-            <div class="method-info">
-              <div class="method-name-full">${method.name}</div>
-              <div class="method-details-full">${method.details}</div>
-            </div>
-            <span>✅</span>
-          `;
-          allPaymentMethodsList.appendChild(methodElement);
-        });
-
-        viewAllMethodsModal.classList.add("show");
-      });
-
-      // Close View All Modal
-      closeViewAllModal.addEventListener("click", () => {
-        viewAllMethodsModal.classList.remove("show");
-      });
-
-      // Close Add Payment Modal
-      closeAddPaymentModal.addEventListener("click", () => {
-        addPaymentModal.classList.remove("show");
-      });
-
-      // Add Payment Method
-      addMethodBtn.addEventListener("click", () => {
-        const name = methodNameInput.value.trim();
-        const code = methodCodeInput.value.trim();
-
-        if (!name || !code) {
-          addMethodMessage.textContent = "Por favor completa todos los campos";
-          addMethodMessage.className = "transfer-message error";
-          return;
-        }
-
-        addMethodMessage.textContent = "Método agregado exitosamente";
-        addMethodMessage.className = "transfer-message success";
-
-        setTimeout(() => {
-          addPaymentModal.classList.remove("show");
-          // Here you would normally add the method to the data and refresh the list
-        }, 1500);
-      });
-
-      // Helper function to get current currency
-      function getCurrentCurrency() {
-        const currencyBtn = document.getElementById("currencyBtn");
-        const flagToCurrency = {
-          "🇦🇷": "ARS",
-          "🇧🇴": "BOB",
-          "🇪🇺": "EUR",
-          "🇺🇸": "USD",
-        };
-        return flagToCurrency[currencyBtn.textContent] || "EUR";
-      }
-
-      // Connect existing + button to add payment functionality
-      const addPaymentContainer = document.querySelector(
-        ".add-payment-container"
-      );
-      addPaymentContainer.addEventListener("click", () => {
-        const currentCurrency = getCurrentCurrency();
-        openAddPaymentModal(currentCurrency);
-      });
-
-      // Buy/Sell Switch Functionality
-      const buySellSwitch = document.getElementById("buySellSwitch");
-      const amountElement = document.querySelector(".amount");
-
-      // Store original amounts for each currency
-      const originalAmounts = {
-        ARS: 1230,
-        BOB: 6.9,
-        EUR: 0.86,
-        USD: 0.99,
-      };
-
-      function updatePriceDisplay() {
-        const currentCurrency = getCurrentCurrency();
-        const isSellingMode = buySellSwitch.checked;
-        const originalAmount = originalAmounts[currentCurrency];
-
-        let displayAmount;
-        let prefix = "";
-
-        if (isSellingMode) {
-          // Apply 3% discount for selling
-          displayAmount = (originalAmount * 0.97).toFixed(2);
-        } else {
-          displayAmount = originalAmount.toFixed(2);
-        }
-
-        // Add currency prefix
-        switch (currentCurrency) {
-          case "ARS":
-          case "USD":
-            prefix = "$";
-            break;
-          case "EUR":
-            prefix = "€";
-            break;
-          case "BOB":
-            prefix = "";
-            break;
-        }
-
-        amountElement.textContent = `USDC for ${prefix}${displayAmount}, ${currentCurrency}`;
-      }
-
-      // Listen for switch changes
-      buySellSwitch.addEventListener("change", updatePriceDisplay);
-
-      // Initialize with default currency
-      updatePaymentMethods("ARS");
-
-      // Close dropdowns when clicking outside
-      document.addEventListener("click", () => {
-        cryptoDropdownMenu.classList.remove("show");
-        networkDropdownMenu.classList.remove("show");
-        currencyDropdownMenu.classList.remove("show");
-      });
-    </script>
+    <script src="scripts/dropdowns.js"></script>
+    <script src="scripts/modals.js"></script>
+    <script src="scripts/payment.js"></script>
   </body>
 </html>
