@@ -409,8 +409,8 @@
 }
 
 .usdc-logo {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   background: #2563eb;
   border-radius: 50%;
   display: flex;
@@ -418,6 +418,29 @@
   justify-content: center;
   color: white;
   font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  transition: background-color 0.2s;
+  font-size: 16px;
+  padding: 0;
+}
+
+.usdc-logo:hover {
+  background: #1d4ed8;
+}
+
+.usdc-logo .crypto-logo-small {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: transparent;
 }
 
 .balance-amount {
@@ -426,57 +449,31 @@
   color: #111827;
   display: flex;
   align-items: center;
-  gap: 12px; /* Más espacio entre el número y el dropdown */
-  justify-content: center;
-  flex-wrap: wrap; /* Permitir que se ajuste en móvil */
-}
-
-.wallet-address {
-  margin-top: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
-  font-family: "SF Mono", Monaco, monospace;
-  font-size: 14px;
-  color: #6b7280;
+  justify-content: center;
+  margin-right: 18px;
 }
 
-.copy-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* ===== DROPDOWNS ===== */
-
-.crypto-selector-container,
 .network-selector-container {
   position: relative;
-}
-
-.crypto-dropdown {
-  background: #2563eb;
-  border: none;
-  color: white;
-  cursor: pointer;
+  display: inline-block;
+  margin-left: 18px;
+  margin-top: -32px; /* Volver al estado anterior */
 }
 
 .network-selector {
   background: #f3f4f6;
   border: 1px solid #9ca3af;
-  border-radius: 8px;
-  padding: 4px 8px;
+  border-radius: 20px;
+  padding: 2px 2px;
   font-size: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-left: 8px;
-  height: 28px; /* Un poco más alto */
-  min-width: 55px; /* Un poco más ancho */
-  flex-shrink: 0; /* Evitar que se comprima */
+  height: 30px;
+  min-width: 50px;
+  flex-shrink: 0;
 }
 
 .network-logo {
@@ -512,6 +509,11 @@
 .crypto-dropdown-menu {
   left: 0;
   min-width: 120px;
+  z-index: 1000; /* Asegurar que esté por encima */
+}
+
+.crypto-dropdown-menu.show {
+  display: block !important; /* Forzar que se muestre */
 }
 
 .network-dropdown-menu {
@@ -1252,4 +1254,17 @@
 
 .close-message-btn.success-btn:hover {
   background: #059669;
+}
+
+.crypto-selector-container {
+  position: relative;
+  display: inline-block;
+}
+
+.crypto-dropdown {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
 }
